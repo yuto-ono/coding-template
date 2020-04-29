@@ -1,2 +1,2 @@
-# coding-template
-HTML / CSS コーディングの最強の開発環境
+# HTML / CSS コーディングの最強の開発環境
+説明は後で書く
