@@ -1,0 +1,21 @@
+.header {
+	&__inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	&__list {
+		display: flex;
+
+		@include sp {
+			display: none;
+		}
+	}
+
+	&__sp-menu {
+		@include pc {
+			display: none;
+		}
+	}
+}

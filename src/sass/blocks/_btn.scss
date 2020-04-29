@@ -1,0 +1,18 @@
+.btn {
+	display: inline-block;
+	position: relative;
+	padding: 10px;
+	background-color: #999;
+	color: #fff;
+	text-decoration: none;
+	text-align: center;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	appearance: none;
+	outline: none;
+	cursor: pointer;
+	user-select: none;
+	@include hover_effect;
+}

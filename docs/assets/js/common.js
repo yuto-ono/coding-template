@@ -1,0 +1,1 @@
+!function(e){function t(){e.body.classList.toggle("is-drawer-active")}e.getElementById("drawer_btn").addEventListener("click",t),e.getElementById("drawer_shade").addEventListener("click",t)}(document);

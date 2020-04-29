@@ -1,0 +1,37 @@
+// レスポンシブ　メディアクエリ
+@mixin sp {
+	@media only screen and (max-width: 767px) {
+		@content;
+	}
+}
+
+@mixin pc {
+	@media only screen and (min-width: 768px), print {
+		@content;
+	}
+}
+
+
+// ホバー時に opacity を下げる
+@mixin hover_effect($opacity: 0.8, $duration: 0.3s) {
+	transition: opacity $duration;
+	&:hover {
+		opacity: $opacity;
+	}
+}
+
+
+// ホバー時アンダーライン
+@mixin text_hover_effect {
+	text-decoration: none;
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+
+// フォントのrem計算
+@mixin font-size($size) {
+	font-size: $size + px;
+	font-size: ($size / 16) + rem;
+}

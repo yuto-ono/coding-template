@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width">
+	<title><%= title %></title>
+	<meta name="description" content="<%= description %>">
+	<% if (noindex) { %>
+		<meta name="robots" content="noindex">
+	<% } %>
+	<link rel="stylesheet" href="/assets/css/common.css">
+</head>
+<body class="page-<%= page %>">
+<div class="wrapper">
+	<header class="header">
+		<div class="header__inner">
+			<% if ('home' === page) { %>
+				<h1 class="header__logo">
+					<a href="/"><img src="//placehold.jp/200x50.png" alt=""></a>
+				</h1>
+			<% } else { %>
+				<div class="header__logo">
+					<a href="/"><img src="//placehold.jp/200x50.png" alt=""></a>
+				</div>
+			<% } %>
+			<nav class="header__nav">
+				<ul class="header__list">
+					<li><a href="" class="header__link">メニュー1</a></li>
+					<li><a href="" class="header__link">メニュー2</a></li>
+					<li><a href="" class="header__link">メニュー3</a></li>
+				</ul>
+			</nav>
+			<div class="header__sp-menu">
+				<button class="sp-menu" id="drawer_btn">
+					<span class="sp-menu__bar-1"></span>
+					<span class="sp-menu__bar-2"></span>
+					<span class="sp-menu__bar-3"></span>
+				</button>
+			</div>
+			<nav class="drawer" id="drawer">
+				<ul class="drawer__list">
+					<li><a href="" class="header__link">メニュー1</a></li>
+					<li><a href="" class="header__link">メニュー2</a></li>
+					<li><a href="" class="header__link">メニュー3</a></li>
+				</ul>
+			</nav>
+			<div class="drawer__shade" id="drawer_shade"></div>
+		</div>
+	</header>
