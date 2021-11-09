@@ -1,26 +1,71 @@
 .top {
-	height: 584px;
-	margin-top: 48px;
-	margin-left: auto;
-	margin-right: auto;
-	width: calc(100vw - 120px);
-	max-width: 1320px;
-	background-image: url(/assets/img/top-image.png);
-	background-size: cover;
-	background-position: center;
-	padding-top: 100px;
+	letter-spacing: 0.2em;
+	border-radius: 8px;
+	@include sp {
+		width: 100%;
+		overflow: hidden;
+	}
+
+	&__inner {
+		margin-top: 48px;
+		margin-left: auto;
+		margin-right: auto;
+		width: calc(100vw - 120px);
+		max-width: 1320px;
+		border-radius: 8px;
+		background-image: url(/assets/img/top-image.jpg);
+		background-size: cover;
+		background-position: center;
+		padding-top: 100px;
+		padding-bottom: 50px;
+		@include sp {
+			width: 100%;
+			margin-top: 8px;
+			margin-left: 8px;
+			margin-right: 8px;
+			padding-top: 0px;
+			width: calc(100vw - 20px);
+			background-image: none;
+		}
+	}
 
 	&__container {
 		max-width: 958px;
 		margin-left: auto;
 		margin-right: auto;
+		padding-left: 30px;
+		padding-right: 30px;
+		@include sp {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	}
+
+	&__textbox {
+		@include sp {
+			width: 100%;
+			background-image: url(/assets/img/top-image-sp.jpg);
+			background-size: cover;
+			background-position: center;
+			padding-top: 25px;
+			padding-left: 10px;
+			padding-right: 10px;
+			padding-bottom: 30px;
+			border-radius: 8px;
+		}
 	}
 
 	&__hilight {
+		margin-left: -30px;
 		color: #fff;
 		font-size: 48px;
 		line-height: 77px;
 		letter-spacing: 18%;
+		@include sp {
+			margin-left: 0;
+			font-size: 18px;
+			line-height: 36px;
+		}
 	}
 
 	&__catch {
@@ -29,27 +74,92 @@
 		font-size: 24px;
 		line-height: 48px;
 		letter-spacing: 18%;
+		@include sp {
+			font-size: 13px;
+			line-height: 26px;
+		}
 	}
+
 	&__card {
+		display: flex;
+		margin-top: 24px;
+		border-radius: 4px;
 		max-width: 958px;
 		background-color: #fff;
 		padding-top: 30px;
 		padding-left: 30px;
 		padding-right: 30px;
+		box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+		@include sp {
+			box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+			margin-top: 15px;
+			flex-direction: column;
+			padding: 10px;
+		}
+	}
+
+	&__search {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column;
+		@include sp {
+		}
 	}
 
 	&__items {
 		display: flex;
+		flex: auto;
 		justify-content: flex-start;
+		border: 1px solid #aaa;
+		border-right: none;
+		border-radius: 4px 0px 0px 4px;
+		@include sp {
+			flex-direction: column;
+			border: none;
+			order: 0;
+		}
 	}
 
-	&__select {
+	&__inputtext {
+		flex: auto;
 		height: 46px;
+		// height: 44px;
 		border: 1px solid #edf1f3;
 		padding-left: 10px;
 		font-size: 14px;
+		border-radius: 4px 0px 0px 4px;
 		&::placeholder {
 			color: #bbb;
+		}
+		@include sp {
+			border: 1px solid #aaa;
+			border-radius: 4px;
+		}
+	}
+
+	&__selectitems {
+		display: flex;
+		@include sp {
+			margin-top: 12px;
+			border: 1px solid #aaa;
+			border-radius: 4px;
+		}
+	}
+
+	&__checks {
+		display: flex;
+		@include sp {
+			flex-direction: column;
+			margin-bottom: 25px;
+		}
+	}
+
+	&__btn {
+		border-radius: 0px 4px 4px 0px;
+		width: 155px;
+		@include sp {
+			width: 100%;
+			margin-bottom: 15px;
 		}
 	}
 }

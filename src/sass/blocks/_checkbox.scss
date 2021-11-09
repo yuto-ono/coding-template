@@ -1,0 +1,24 @@
+.checkbox {
+	display: flex;
+	align-items: center;
+	font-size: 13px;
+	margin-top: 15px;
+	margin-left: 5px;
+	margin-right: 10px;
+	margin-bottom: 30px;
+	color: #333;
+	@include sp {
+		margin-top: 8px;
+		margin-bottom: 0;
+	}
+
+	&__input {
+		width: 16px;
+	}
+
+	&__label {
+		margin-left: 5px;
+		margin-top: 3px;
+		letter-spacing: 0;
+	}
+}
