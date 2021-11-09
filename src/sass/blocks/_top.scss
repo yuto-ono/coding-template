@@ -1,0 +1,55 @@
+.top {
+	height: 584px;
+	margin-top: 48px;
+	margin-left: auto;
+	margin-right: auto;
+	width: calc(100vw - 120px);
+	max-width: 1320px;
+	background-image: url(/assets/img/top-image.png);
+	background-size: cover;
+	background-position: center;
+	padding-top: 100px;
+
+	&__container {
+		max-width: 958px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	&__hilight {
+		color: #fff;
+		font-size: 48px;
+		line-height: 77px;
+		letter-spacing: 18%;
+	}
+
+	&__catch {
+		color: #fff;
+		margin-top: 24px;
+		font-size: 24px;
+		line-height: 48px;
+		letter-spacing: 18%;
+	}
+	&__card {
+		max-width: 958px;
+		background-color: #fff;
+		padding-top: 30px;
+		padding-left: 30px;
+		padding-right: 30px;
+	}
+
+	&__items {
+		display: flex;
+		justify-content: flex-start;
+	}
+
+	&__select {
+		height: 46px;
+		border: 1px solid #edf1f3;
+		padding-left: 10px;
+		font-size: 14px;
+		&::placeholder {
+			color: #bbb;
+		}
+	}
+}
