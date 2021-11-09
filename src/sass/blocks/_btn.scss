@@ -1,8 +1,7 @@
 .btn {
 	display: inline-block;
 	position: relative;
-	padding: 10px;
-	background-color: #999;
+	background-color: #ff9d1f;
 	color: #fff;
 	text-decoration: none;
 	text-align: center;
@@ -14,5 +13,17 @@
 	outline: none;
 	cursor: pointer;
 	user-select: none;
+	border: none;
+	outline: none;
 	@include hover_effect;
+
+	&.-top {
+		border-radius: 0px 4px 4px 0px;
+		width: 100%;
+		height: 48px;
+		// height: 50px;
+		font-size: 16px;
+		font-style: normal;
+		line-height: 33px;
+	}
 }

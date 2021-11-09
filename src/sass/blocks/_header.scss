@@ -1,21 +1,8 @@
 .header {
-	&__inner {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
-	}
-
-	&__list {
-		display: flex;
-
-		@include sp {
-			display: none;
-		}
-	}
-
-	&__sp-menu {
-		@include pc {
-			display: none;
-		}
+	width: 100%;
+	height: 90px;
+	background-color: #0e6bac;
+	@include sp {
+		height: 55px;
 	}
 }
