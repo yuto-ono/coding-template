@@ -1,1 +1,13 @@
-!function(e){function t(){e.body.classList.toggle("is-drawer-active")}e.getElementById("drawer_btn").addEventListener("click",t),e.getElementById("drawer_shade").addEventListener("click",t)}(document);
+(function () {
+	'use strict';
+
+	(function (d) {
+	  var toggleDrawer = function toggleDrawer() {
+	    d.body.classList.toggle('is-drawer-active');
+	  };
+
+	  d.getElementById('drawer_btn').addEventListener('click', toggleDrawer);
+	  d.getElementById('drawer_shade').addEventListener('click', toggleDrawer);
+	})(document);
+
+})();

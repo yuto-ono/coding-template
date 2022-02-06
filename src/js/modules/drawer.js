@@ -1,6 +1,5 @@
-(function (d) {
-
-	function toggleDrawer () {
+(d => {
+	const toggleDrawer = () => {
 		d.body.classList.toggle('is-drawer-active');
 	}
 
