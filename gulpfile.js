@@ -2,9 +2,8 @@ import gulp from 'gulp'
 import browserSync from 'browser-sync'
 import ejs from 'gulp-ejs'
 import rename from 'gulp-rename'
-import gulpSass from 'gulp-sass'
-import sass from 'sass'
-import sassGlob from 'gulp-sass-glob'
+import sass from 'gulp-dart-sass'
+import sassGlob from 'gulp-sass-glob-use-forward'
 import autoPrefixer from 'gulp-autoprefixer'
 import imagemin from 'gulp-imagemin'
 import plumber from 'gulp-plumber'
@@ -63,9 +62,7 @@ const ejsTask = cb => gulp.src([ path.src.ejs, path.src.ejsExcept ])
 const css = cb => gulp.src(path.src.scss)
 	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }))
 	.pipe( sassGlob() )
-	.pipe( gulpSass(sass)({
-		outputStyle: isProduction ? 'compressed' : 'expanded'
-	}))
+	.pipe( sass({ outputStyle: isProduction ? 'compressed' : 'expanded' }))
 	.pipe( autoPrefixer() )
 	.pipe( gulp.dest( path.dest.css ) )
 

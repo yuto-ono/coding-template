@@ -1,3 +1,5 @@
+@use "../mixin" as *;
+
 // ハンバーガーメニューの中身
 
 .drawer {
@@ -17,7 +19,7 @@
 	transition: all 0.5s;
 
 	.is-drawer-active & {
-		@include sp {
+		@include sm {
 			opacity: 1;
 			visibility: visible;
 			transform: none;
@@ -39,7 +41,7 @@
 	transition-duration: 0.5s;
 
 	.is-drawer-active & {
-		@include sp {
+		@include sm {
 			opacity: 1;
 			visibility: visible;
 		}

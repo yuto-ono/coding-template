@@ -1,3 +1,5 @@
+@use "mixin" as *;
+
 /* Utilities */
 
 //text-align
@@ -14,12 +16,12 @@
 .u-inline-block { display: inline-block !important; }
 .u-inline { display: inline !important; }
 
-@include sp {
+@include sm {
 	.u-block-sp { display: block !important; }
 	.u-inline-block-sp { display: inline-block !important; }
 	.u-inline-sp { display: inline !important; }
 }
-@include pc {
+@include sm_up {
 	.u-block-pc { display: block !important; }
 	.u-inline-block-pc { display: inline-block !important; }
 	.u-inline-pc { display: inline !important; }
@@ -29,11 +31,11 @@
 .u-nowrap{ white-space: nowrap !important; }
 
 //SP非表示
-@include sp {
+@include sm {
 	.u-hidden-sp{	display: none !important; }
 }
 
 //PC非表示
-@include pc {
+@include sm_up {
 	.u-hidden-pc{	display: none !important; }
 }

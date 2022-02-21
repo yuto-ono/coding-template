@@ -1,3 +1,5 @@
+@use "../mixin" as *;
+
 .header {
 	&__inner {
 		display: flex;
@@ -8,13 +10,13 @@
 	&__list {
 		display: flex;
 
-		@include sp {
+		@include sm {
 			display: none;
 		}
 	}
 
 	&__sp-menu {
-		@include pc {
+		@include sm_up {
 			display: none;
 		}
 	}

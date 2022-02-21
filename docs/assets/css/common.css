@@ -16,7 +16,7 @@ body {
   line-height: 1.75;
   box-sizing: border-box;
 }
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   body {
     overflow-x: hidden;
   }
@@ -74,7 +74,7 @@ ul {
   display: inline !important;
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .u-block-sp {
     display: block !important;
   }
@@ -87,7 +87,7 @@ ul {
     display: inline !important;
   }
 }
-@media only screen and (min-width: 768px), print {
+@media screen and (min-width: 768px), print {
   .u-block-pc {
     display: block !important;
   }
@@ -104,45 +104,36 @@ ul {
   white-space: nowrap !important;
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .u-hidden-sp {
     display: none !important;
   }
 }
-@media only screen and (min-width: 768px), print {
+@media screen and (min-width: 768px), print {
   .u-hidden-pc {
     display: none !important;
   }
 }
-/* Layouts */
-@media only screen and (min-width: 768px), print {
+@media screen and (min-width: 1080px) {
   .container {
     width: 1000px;
     margin-left: auto;
     margin-right: auto;
   }
 }
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 1079px) {
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
   .container {
     padding-left: 10px;
     padding-right: 10px;
   }
 }
 
-@media only screen and (max-width: 767px) {
-  .wrapper {
-    width: 100%;
-    overflow: hidden;
-  }
-}
-@media only screen and (min-width: 768px), print {
-  .wrapper {
-    min-width: 1040px;
-    overflow: hidden;
-  }
-}
-
-/* Blocks */
 .btn {
   display: inline-block;
   position: relative;
@@ -186,7 +177,7 @@ ul {
   transform: translateX(100%);
   transition: all 0.5s;
 }
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .is-drawer-active .drawer {
     opacity: 1;
     visibility: visible;
@@ -207,7 +198,7 @@ ul {
   transition-property: opacity, visibility;
   transition-duration: 0.5s;
 }
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .is-drawer-active .drawer__shade {
     opacity: 1;
     visibility: visible;
@@ -222,12 +213,12 @@ ul {
 .header__list {
   display: flex;
 }
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .header__list {
     display: none;
   }
 }
-@media only screen and (min-width: 768px), print {
+@media screen and (min-width: 768px), print {
   .header__sp-menu {
     display: none;
   }
@@ -288,3 +279,6 @@ ul {
 .is-drawer-active .sp-menu__bar-3 {
   transform: translateY(5px) rotate(-45deg) scaleX(1.4142);
 }
+
+/* Layouts */
+/* Blocks */

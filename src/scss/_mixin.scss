@@ -1,12 +1,36 @@
-// レスポンシブ　メディアクエリ
-@mixin sp {
-	@media only screen and (max-width: 767px) {
+$pc_width: 1000px;
+$pc_padding: 40px;
+$sp_padding: 10px;
+$break_sm: 768px;
+$break_lg: $pc_width + ($pc_padding * 2);
+
+// レスポンシブ メディアクエリ
+@mixin sm {
+	@media screen and (max-width: ($break_sm - 1px)) {
 		@content;
 	}
 }
 
-@mixin pc {
-	@media only screen and (min-width: 768px), print {
+@mixin sm_up {
+	@media screen and (min-width: $break_sm), print {
+		@content;
+	}
+}
+
+@mixin md {
+	@media screen and (min-width: $break_sm) and (max-width: ($break_lg - 1px)) {
+		@content;
+	}
+}
+
+@mixin lg_down {
+	@media screen and (max-width: ($break_lg - 1px)) {
+		@content;
+	}
+}
+
+@mixin lg {
+	@media screen and (min-width: $break_lg) {
 		@content;
 	}
 }
@@ -27,11 +51,4 @@
 	&:hover {
 		text-decoration: underline;
 	}
-}
-
-
-// フォントのrem計算
-@mixin font-size($size) {
-	font-size: $size + px;
-	font-size: ($size / 16) + rem;
 }

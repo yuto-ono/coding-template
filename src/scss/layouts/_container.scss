@@ -1,10 +1,16 @@
+@use "../mixin" as *;
+
 .container {
-	@include pc {
+	@include lg {
 		width: $pc_width;
 		margin-left: auto;
 		margin-right: auto;
 	}
-	@include sp {
+	@include lg_down {
+		padding-left: $pc_padding;
+		padding-right: $pc_padding;
+	}
+	@include sm {
 		padding-left: $sp_padding;
 		padding-right: $sp_padding;
 	}
