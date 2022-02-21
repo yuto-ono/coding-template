@@ -155,10 +155,6 @@ ul {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  transition: opacity 0.3s;
-}
-.btn:hover {
-  opacity: 0.8;
 }
 
 .drawer {
@@ -279,6 +275,3 @@ ul {
 .is-drawer-active .sp-menu__bar-3 {
   transform: translateY(5px) rotate(-45deg) scaleX(1.4142);
 }
-
-/* Layouts */
-/* Blocks */

@@ -36,15 +36,6 @@ $break_lg: $pc_width + ($pc_padding * 2);
 }
 
 
-// ホバー時に opacity を下げる
-@mixin hover_effect($opacity: 0.8, $duration: 0.3s) {
-	transition: opacity $duration;
-	&:hover {
-		opacity: $opacity;
-	}
-}
-
-
 // ホバー時アンダーライン
 @mixin text_hover_effect {
 	text-decoration: none;
