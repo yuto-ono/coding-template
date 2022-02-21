@@ -1,22 +1,17 @@
-const {
-	series,
-	parallel,
-	src,
-	dest,
-	watch,
-} = require('gulp')
-
-const browserSync = require('browser-sync')
-const ejs = require('gulp-ejs')
-const sass = require('gulp-sass')(require('sass'))
-const sassGlob = require('gulp-sass-glob')
-const autoprefixer = require('gulp-autoprefixer')
-const imagemin = require('gulp-imagemin')
-const plumber = require('gulp-plumber')
-const notify = require('gulp-notify')
-const changed = require('gulp-changed')
-const rename = require('gulp-rename')
-const shell = require('gulp-shell')
+import gulp from 'gulp'
+import browserSync from 'browser-sync'
+import ejs from 'gulp-ejs'
+import rename from 'gulp-rename'
+import gulpSass from 'gulp-sass'
+import sass from 'sass'
+import sassGlob from 'gulp-sass-glob'
+import autoPrefixer from 'gulp-autoprefixer'
+import imagemin from 'gulp-imagemin'
+import plumber from 'gulp-plumber'
+import notify from 'gulp-notify'
+import changed from 'gulp-changed'
+import shell from 'gulp-shell'
+import del from 'del'
 
 // パスの設定
 const path = {
@@ -57,20 +52,22 @@ const serve = cb => {
 
 
 // EJS
-const ejsTask = cb => src([ path.src.ejs, path.src.ejsExcept ])
-	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }) )
+const ejsTask = cb => gulp.src([ path.src.ejs, path.src.ejsExcept ])
+	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }))
 	.pipe( ejs() )
 	.pipe( rename({ extname: '.html' }))
-	.pipe( dest(path.dest.ejs) )
+	.pipe( gulp.dest(path.dest.ejs) )
 
 
 // CSS
-const css = cb => src( path.src.scss )
-	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }) )
+const css = cb => gulp.src(path.src.scss)
+	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }))
 	.pipe( sassGlob() )
-	.pipe( sass({ outputStyle: isProduction ? 'compressed' : 'expanded' }) )
-	.pipe( autoprefixer() )
-	.pipe( dest( path.dest.css ) )
+	.pipe( gulpSass(sass)({
+		outputStyle: isProduction ? 'compressed' : 'expanded'
+	}))
+	.pipe( autoPrefixer() )
+	.pipe( gulp.dest( path.dest.css ) )
 
 
 // JS
@@ -81,28 +78,39 @@ const js = shell.task(
 )
 
 // 画像圧縮
-const image = cb => src( path.src.image )
-	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }) )
+const image = cb => gulp.src(path.src.image)
+	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }))
 	.pipe( changed(path.dest.image) )
 	.pipe( imagemin() )
-	.pipe( dest(path.dest.image) )
+	.pipe( gulp.dest(path.dest.image) )
 
 
 // ファイル監視
 const watchTask = cb => {
-	watch( path.src.ejs, ejsTask )
-	watch( path.src.scss, css )
-	watch( path.src.js, js )
-	watch( path.src.image, image )
+	gulp.watch( path.src.ejs, ejsTask )
+	gulp.watch( path.src.scss, css )
+	gulp.watch( path.src.js, js )
+	gulp.watch( path.src.image, image )
 }
 
-const build = series( ejsTask, css, js, image )
+
+// docs削除
+const clean = cb => del(path.dest.root + '**/*').then(() => cb)
+
+// ビルド
+const build = gulp.series( clean, ejsTask, css, js, image )
+
+// デフォルト（ビルド + サーバー起動 + 監視）
+const defaultTask = gulp.series( build, gulp.parallel( serve, watchTask ))
 
 
-// Public Tasks
-exports.build = build
-exports.ejs = ejsTask
-exports.css = css
-exports.js = js
-exports.image = image
-exports.default = series( build, parallel( serve, watchTask ))
+export {
+	build,
+	clean,
+	ejsTask as ejs,
+	css,
+	js,
+	image,
+}
+
+export default defaultTask
