@@ -68,11 +68,7 @@ const css = cb => gulp.src(path.src.scss)
 
 
 // JS
-const js = shell.task(
-	isProduction
-		? 'rollup -c --environment NODE_ENV:production'
-		: 'rollup -c'
-)
+const js = shell.task(`rollup -c${ isProduction ? ' --environment NODE_ENV:production' : '' }`)
 
 // 画像圧縮
 const image = cb => gulp.src(path.src.image)
