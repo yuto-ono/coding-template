@@ -33,7 +33,6 @@ const path = {
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-
 // ローカルサーバー
 const serve = cb => {
 	browserSync({
@@ -49,14 +48,12 @@ const serve = cb => {
 	cb()
 }
 
-
 // EJS
 const ejsTask = cb => gulp.src([ path.src.ejs, path.src.ejsExcept ])
 	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }))
 	.pipe( ejs() )
 	.pipe( rename({ extname: '.html' }))
 	.pipe( gulp.dest(path.dest.ejs) )
-
 
 // CSS
 const css = cb => gulp.src(path.src.scss)
@@ -65,7 +62,6 @@ const css = cb => gulp.src(path.src.scss)
 	.pipe( sass({ outputStyle: isProduction ? 'compressed' : 'expanded' }))
 	.pipe( autoPrefixer() )
 	.pipe( gulp.dest( path.dest.css ) )
-
 
 // JS
 const js = shell.task(`rollup -c${ isProduction ? ' --environment NODE_ENV:production' : '' }`)
@@ -77,7 +73,6 @@ const image = cb => gulp.src(path.src.image)
 	.pipe( imagemin() )
 	.pipe( gulp.dest(path.dest.image) )
 
-
 // ファイル監視
 const watchTask = cb => {
 	gulp.watch( path.src.ejs, ejsTask )
@@ -85,7 +80,6 @@ const watchTask = cb => {
 	gulp.watch( path.src.js, js )
 	gulp.watch( path.src.image, image )
 }
-
 
 // docs削除
 const clean = cb => del(path.dest.root + '**/*').then(() => cb)
@@ -95,7 +89,6 @@ const build = gulp.series( clean, ejsTask, css, js, image )
 
 // デフォルト（ビルド + サーバー起動 + 監視）
 const defaultTask = gulp.series( build, gulp.parallel( serve, watchTask ))
-
 
 export {
 	build,
