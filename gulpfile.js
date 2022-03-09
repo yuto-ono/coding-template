@@ -31,7 +31,7 @@ const path = {
 	},
 }
 
-const isProduction = process.env.NODE_ENV === 'production'
+const isProd = process.env.NODE_ENV === 'production'
 
 // ローカルサーバー
 const serve = cb => {
@@ -59,12 +59,12 @@ const ejsTask = cb => gulp.src([ path.src.ejs, path.src.ejsExcept ])
 const css = cb => gulp.src(path.src.scss)
 	.pipe( plumber({ errorHandler: notify.onError('<%= error.message %>') }))
 	.pipe( sassGlob() )
-	.pipe( sass({ outputStyle: isProduction ? 'compressed' : 'expanded' }))
+	.pipe( sass({ outputStyle: isProd ? 'compressed' : 'expanded' }))
 	.pipe( autoPrefixer() )
 	.pipe( gulp.dest( path.dest.css ) )
 
 // JS
-const js = shell.task(`rollup -c${ isProduction ? ' --environment NODE_ENV:production' : '' }`)
+const js = shell.task(`rollup -c${ isProd ? ' --environment NODE_ENV:production' : '' }`)
 
 // 画像圧縮
 const image = cb => gulp.src(path.src.image)
